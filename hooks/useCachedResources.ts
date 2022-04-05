@@ -2,9 +2,12 @@ import { FontAwesome } from '@expo/vector-icons';
 import * as Font from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect, useState } from 'react';
+import { useGlobalContext } from '../Provider/MyGlobalContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function useCachedResources() {
   const [isLoadingComplete, setLoadingComplete] = useState(false);
+  const { setWorkId, setTeam, setGroup } = useGlobalContext();
 
   // Load any resources or data that we need prior to rendering the app
   useEffect(() => {
